@@ -10,12 +10,17 @@ import java.util.List;
  * @description com.taotao.manager.service
  * @date 2018/2/16
  */
-public interface ItemCatService {
+public interface ItemCatService extends BaseService<ItemCat>{
+    /**
+     * @param parentId
+     * @return
+     */
+    List<ItemCat> queryItemCatByParentId(Long parentId);
     /**
      * query itemCat by page
      * @param page
      * @param rows
      * @return
-     */
-    List<ItemCat> queryItemCatByPage(Integer page,Integer rows);
+     *//*
+    List<ItemCat> queryItemCatByPage(Integer page,Integer rows);*/
 }

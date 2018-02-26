@@ -7,6 +7,7 @@
     <module>taotao_common</module>
     <module>taotao_manager</module>
     <module>taotao_manager_web</module>
+      <module>taotao_portal</module>
   </modules>
   <packaging>pom</packaging>
 
@@ -251,6 +252,11 @@
       <groupId>org.apache.solr</groupId>
       <artifactId>solr-solrj</artifactId>
       <version>${solrj.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>fastdfs_client</groupId>
+      <artifactId>fastdfs_client</artifactId>
+      <version>1.25</version>
     </dependency>
 
   </dependencies>

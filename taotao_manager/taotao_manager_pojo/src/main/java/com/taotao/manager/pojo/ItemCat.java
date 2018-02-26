@@ -1,10 +1,7 @@
 package com.taotao.manager.pojo;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Table(name = "tb_item_cat")
 public class ItemCat extends BasePojo {
@@ -74,4 +71,11 @@ public class ItemCat extends BasePojo {
         this.isParent = isParent;
     }
 
+    public String getText(){
+        return this.getName();
+    }
+
+    public String getState(){
+        return this.isParent?"closed":"open";
+    }
 }

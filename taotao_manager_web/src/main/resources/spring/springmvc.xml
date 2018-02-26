@@ -7,7 +7,7 @@
       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-
+    <context:property-placeholder location="classpath:*.properties"/>
     <!-- 配置controller扫描 -->
     <context:component-scan base-package="com.taotao.manager.web.controller" />
 
@@ -20,6 +20,9 @@
         <property name="prefix" value="/WEB-INF/views/" />
         <property name="suffix" value=".jsp" />
     </bean>
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="5000000"></property>
+    </bean>
 
     <!-- 配置dubbo服务 -->
     <dubbo:application name="taotao_manager_web" />
@@ -31,10 +34,16 @@
     <!-- 声明要调用的服务，timeout是设置连接超时最长时间,如果不设置，超时时间默认是3秒 -->
     <!-- <dubbo:reference interface="com.taotao.manager.service.ItemCatService" -->
     <!-- id="itemCatService" timeout="1000000" /> -->
-    <dubbo:reference interface="com.taotao.manager.service.TestService" id="testService" timeout="1000000"
-        >
-    </dubbo:reference>
-    <dubbo:reference interface="com.taotao.manager.service.ItemCatService" id="itemCatService" timeout="1000000"
-    >
-    </dubbo:reference>
+    <dubbo:reference interface="com.taotao.manager.service.TestService"
+        id="testService" timeout="1000000"/>
+    <dubbo:reference interface="com.taotao.manager.service.ItemCatService"
+        id="itemCatService" timeout="1000000"/>
+    <dubbo:reference interface="com.taotao.manager.service.ItemService"
+        id="itemService" timeout="1000000"/>
+    <dubbo:reference interface="com.taotao.manager.service.ItemDescService"
+        id="itemDescService" timeout="1000000"/>
+    <dubbo:reference interface="com.taotao.manager.service.ContentCategoryService"
+                     id="contentCategoryService" timeout="1000000"/>
+    <dubbo:reference interface="com.taotao.manager.service.ContentService"
+                     id="contentService" timeout="1000000"/>
 </beans>
